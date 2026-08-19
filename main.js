@@ -72,7 +72,9 @@ function productCardHTML(p) {
         <a class="card-compare" href="compare.html?a=${encodeURIComponent(p.id)}"
            aria-label="Compare the ${p.model}" title="Compare this laptop">${ICONS.compare}</a>
         <span class="card-ghost" aria-hidden="true">${p.brand}</span>
-        ${ICONS.laptop}
+        ${p.image
+          ? `<img class="card-photo" src="${p.image}" alt="${p.model}" loading="lazy" onerror="this.remove()">`
+          : ICONS.laptop}
       </div>
       <div class="card-body">
         <div class="card-brand">${p.brand}</div>
